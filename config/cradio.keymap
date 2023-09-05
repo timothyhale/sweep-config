@@ -16,8 +16,8 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <150>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
             global-quick-tap;
             bindings = <&kp>, <&kp>;
         };
@@ -28,19 +28,21 @@
            #binding-cells = <0>;
            tapping-term-ms = <200>;
            bindings = <&kp A>, <&kp &german_ae>;
+
        };
     };
 
     macros {
         german_ae: german_ae {
             label = "german_ae";
-            compatible = "zmk,behaviour-macro";
-            #binding-cells = <6>;
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             wait-ms = <40>;
             tap-ms = <40>;
-            bindings = <&kp RALT>, <&kp COLON>, <&kp A>;
+            bindings = <&kp RGUI>, <&kp COLON>, <&kp A>;
         };
     };
+
 
     conditional_layers {
             compatible = "zmk,conditional-layers";
@@ -56,7 +58,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Z       │          │
-            &kp Q      &ht LGUI W  &kp F      &kp P      &kp B          &kp J      &kp L      &kp U    &ht LGUI Z  &lt 6 SEMI
+            &kp Q      &ht LGUI W  &kp F      &kp P      &kp B          &kp J      &kp L      &kp U    &kp Z  &kp SEMI
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │ O        │
             HRML(A ,        R,         S,         T)     &kp G          &kp M      HRMR(N,        E,         I,        O)
