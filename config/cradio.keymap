@@ -35,11 +35,10 @@
         german_ae: german_ae {
             label = "german_ae";
             compatible = "zmk,behaviour-macro";
-            #binding-cells = <0>;
+            #binding-cells = <6>;
             wait-ms = <40>;
             tap-ms = <40>;
-            bindings
-                = <&kp RALT>, <&kp COLON>, <&kp A>;
+            bindings = <&kp RALT>, <&kp COLON>, <&kp A>;
         };
     };
 
