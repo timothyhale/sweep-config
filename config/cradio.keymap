@@ -27,21 +27,75 @@
            label = "TAP_DANCE_0";
            #binding-cells = <0>;
            tapping-term-ms = <200>;
-           bindings = <&kp A>, <&kp &german_ae>;
+           bindings = <&kp A>, <&kp RA(Q)>;
 
        };
     };
 
+            // &kp PIPE    &kp CARET  &kp DQT   &kp APOS   &kp GRAVE       &trans     &trans     &trans     &trans     &trans
     macros {
-        german_ae: german_ae {
-            label = "german_ae";
+        sp_dqt: sp_dqt {
+            label = "double quotes";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <40>;
             tap-ms = <40>;
-            bindings = <&kp RGUI>, <&kp COLON>, <&kp A>;
+            bindings = <&kp DQT>, <&kp SPACE>;
+        };
+        sp_apos: sp_apos {
+            label = "apos with space";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings = <&kp APOS>, <&kp SPACE>;
+        };
+        sp_grave: sp_grave {
+            label = "gave with space";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings = <&kp GRAVE>, <&kp SPACE>;
+        };
+        sp_caret: sp_caret {
+            label = "caret with space";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings = <&kp CARET>, <&kp SPACE>;
         };
     };
+
+    combos {
+            compatible = "zmk,combos";
+            combo_ae {
+                timeout-ms = <50>;
+                key-positions = <10 13>;
+                bindings = <&kp RA(Q)>;
+            };
+            combo_oe {
+                timeout-ms = <50>;
+                key-positions = <16 19>;
+                bindings = <&kp RA(P)>;
+            };
+            combo_ue {
+                timeout-ms = <50>;
+                key-positions = <16 7>;
+                bindings = <&kp RA(Y)>;
+            };
+            combo_ss {
+                timeout-ms = <50>;
+                key-positions = <13 12>;
+                bindings = <&kp RA(S)>;
+            };
+            combo_caps {
+                timeout-ms = <50>;
+                key-positions = <13 16>;
+                bindings = <&kp CAPS>;
+            };
+        };
 
 
     conditional_layers {
@@ -51,7 +105,7 @@
                 then-layer = <7>;
             };
         };
-
+        
     keymap {
         compatible = "zmk,keymap";
         default_layer {
@@ -81,7 +135,7 @@
             &trans     &trans     &trans     &trans    &trans          &kp LEFT    &kp DOWN    &kp UP    &kp RIGHT    &kp DEL
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans     &trans    &trans          &trans     &trans     &trans     &trans     &kp CAPS
+            &trans     &trans     &trans     &trans    &trans          &trans     &trans     &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -127,7 +181,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &kp PIPE    &kp CARET  &kp DQT   &kp APOS   &kp GRAVE       &trans     &trans     &trans     &trans     &trans
+            &kp PIPE    &sp_caret  &sp_dqt   &sp_apos  &sp_grave       &trans     &trans     &trans     &trans     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │
             &kp FSLH     &kp LBKT   &kp LBRC  &kp LPAR   &kp LT        &trans     &trans     &trans     &trans     &trans
@@ -144,7 +198,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans     &trans    &trans          &kp GRAVE   &kp APOS   &kp DQT    &kp CARET  &kp PIPE
+            &trans     &trans     &trans     &trans    &trans          &sp_grave   &sp_apos  &sp_dqt    &sp_caret  &kp PIPE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │
             &trans     &trans     &trans     &trans    &trans          &kp GT    &kp RPAR     &kp RBRC  &kp RBKT    &kp BSLH
@@ -164,7 +218,7 @@
             &trans     &trans     &trans     &trans    &trans          &trans     &trans     &trans     &trans     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │
-            &german_ae     &trans     &trans     &trans    &trans          &trans     &trans     &trans     &trans     &trans
+            &trans     &trans     &trans     &trans    &trans          &trans     &trans     &trans     &trans     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
             &trans     &trans     &trans     &trans    &trans          &trans     &trans     &trans     &trans     &trans
