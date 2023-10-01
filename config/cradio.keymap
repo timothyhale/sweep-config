@@ -6,8 +6,8 @@
 #include <dt-bindings/zmk/bt.h>
 
 // Home row mods macro
-#define HRML(k1,k2,k3,k4) &ht LALT k1  &ht LCTRL k2  &lt 5 k3  &ht LSHFT k4
-#define HRMR(k1,k2,k3,k4) &ht RSHFT k1  &lt 4 k2  &ht LCTRL k3  &ht LALT k4
+#define HRML(k1,k2,k3,k4) &lt 4 k1  &ht LALT k2  &ht LCTRL k3  &ht LSHFT k4
+#define HRMR(k1,k2,k3,k4) &ht RSHFT k1  &ht LCTRL k2  &ht LALT k3  &lt 6 k4
 
 / {
     behaviors {
@@ -32,7 +32,6 @@
        };
     };
 
-            // &kp PIPE    &kp CARET  &kp DQT   &kp APOS   &kp GRAVE       &trans     &trans     &trans     &trans     &trans
     macros {
         sp_dqt: sp_dqt {
             label = "double quotes";
@@ -70,30 +69,15 @@
 
     combos {
             compatible = "zmk,combos";
-            combo_ae {
-                timeout-ms = <50>;
-                key-positions = <10 13>;
-                bindings = <&kp RA(Q)>;
-            };
-            combo_oe {
-                timeout-ms = <50>;
-                key-positions = <16 19>;
-                bindings = <&kp RA(P)>;
-            };
-            combo_ue {
-                timeout-ms = <50>;
-                key-positions = <16 7>;
-                bindings = <&kp RA(Y)>;
-            };
-            combo_ss {
-                timeout-ms = <50>;
-                key-positions = <13 12>;
-                bindings = <&kp RA(S)>;
-            };
             combo_caps {
                 timeout-ms = <50>;
-                key-positions = <13 16>;
+                key-positions = <14 15>;
                 bindings = <&kp CAPS>;
+            };
+            combo_gui {
+                timeout-ms = <50>;
+                key-positions = <2 3>;
+                bindings = <&kp LGUI>;
             };
         };
 
@@ -112,7 +96,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Z       │          │
-            &kp Q      &ht LGUI W  &kp F      &kp P      &kp B          &kp J      &kp L      &kp U    &kp Z  &kp SEMI
+            &kp Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U    &kp Z       &kp SEMI
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │ O        │
             HRML(A ,        R,         S,         T)     &kp G          &kp M      HRMR(N,        E,         I,        O)
@@ -120,7 +104,7 @@
         //│  Y       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │ / ?      │
             &kp Y      &kp X      &kp C      &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp DOT    &kp MINUS
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &kp ESC    &lt 1 BSPC     &lt 2 SPACE  &lt 3 ENTER
+                                             &lt 5 ESC    &lt 1 BSPC     &lt 2 SPACE  &lt 3 ENTER
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -129,13 +113,13 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans     &trans    &trans          &kp LS(TAB) &trans     &trans     &kp TAB     &trans
+            &trans     &trans     &trans     &trans    &trans          &kp EXCL  &kp QMARK   &kp AMPS     &kp DLLR  &kp RA(CARET)
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │
-            &trans     &trans     &trans     &trans    &trans          &kp LEFT    &kp DOWN    &kp UP    &kp RIGHT    &kp DEL
+            &trans     &trans     &trans     &trans    &trans          &kp LEFT    &kp DOWN    &kp UP    &kp RIGHT    &kp TAB
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans     &trans    &trans          &trans     &trans     &trans     &trans     &trans
+            &trans     &trans     &trans     &trans    &trans          &kp AT     &kp PRCNT  &kp HASH  &kp RA(TILDE) &kp RA(GRAVE)
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -164,13 +148,13 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &kp F12     &kp F7     &kp F8     &kp F9    &trans          &trans     &trans     &trans     &trans     &trans
+            &kp F12     &kp F7     &kp F8     &kp F9    &kp PSCRN          &trans     &trans     &trans     &trans    &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │
-            &kp F11     &kp F4     &kp F5     &kp F6    &trans          &trans     &trans     &trans     &trans     &trans
+            &kp F11     &kp F4     &kp F5     &kp F6    &kp HOME          &trans     &trans     &trans     &trans     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &kp F10     &kp F1     &kp F2     &kp F3    &trans          &trans     &trans     &trans     &trans     &trans
+            &kp F10     &kp F1     &kp F2     &kp F3    &kp DEL          &trans     &trans     &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -181,13 +165,13 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &kp PIPE    &sp_caret  &sp_dqt   &sp_apos  &sp_grave       &trans     &trans     &trans     &trans     &trans
+            &trans     &trans     &trans     &trans    &trans          &trans     &trans     &kp RA(Y)     &trans     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │
-            &kp FSLH     &kp LBKT   &kp LBRC  &kp LPAR   &kp LT        &trans     &trans     &trans     &trans     &trans
+            &trans     &trans     &trans     &trans    &trans          &trans     &trans     &trans     &trans     &kp RA(P)
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &kp EXCL     &kp AT   &kp DLLR   &kp STAR    &kp TILDE       &trans     &trans     &trans     &trans     &trans
+            &trans     &trans     &trans     &trans    &trans          &trans     &trans     &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -198,13 +182,13 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans     &trans    &trans          &sp_grave   &sp_apos  &sp_dqt    &sp_caret  &kp PIPE
+            &trans     &trans     &trans     &trans    &trans          &kp FSLH   &kp RA(APOS)  &kp RS(RA(DQT))    &trans  &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │
-            &trans     &trans     &trans     &trans    &trans          &kp GT    &kp RPAR     &kp RBRC  &kp RBKT    &kp BSLH
+            &trans     &trans     &trans     &trans    &trans          &kp PIPE    &kp LPAR     &kp RPAR  &kp LBRC    &kp RBRC
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans     &trans    &trans          &kp AMPS   &kp HASH  &trans     &kp EQUAL    &kp QMARK
+            &trans     &trans     &trans     &trans    &trans          &kp BSLH   &kp LBKT  &kp RBKT     &trans    &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -218,7 +202,7 @@
             &trans     &trans     &trans     &trans    &trans          &trans     &trans     &trans     &trans     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │
-            &trans     &trans     &trans     &trans    &trans          &trans     &trans     &trans     &trans     &trans
+            &kp RA(Q)     &trans     &kp RA(S)     &trans    &trans          &trans     &trans     &trans     &trans     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
             &trans     &trans     &trans     &trans    &trans          &trans     &trans     &trans     &trans     &trans
