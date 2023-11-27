@@ -113,7 +113,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans     &trans    &trans          &kp EXCL  &kp QMARK   &kp AMPS     &kp DLLR  &kp RA(CARET)
+            &trans     &trans     &trans     &trans    &trans          &kp RA(CARET) &kp EXCL  &kp QMARK &kp AMPS   &kp DLLR  
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │
             &trans     &trans     &trans     &trans    &trans          &kp LEFT    &kp DOWN    &kp UP    &kp RIGHT    &kp TAB
