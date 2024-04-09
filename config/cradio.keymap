@@ -6,8 +6,8 @@
 #include <dt-bindings/zmk/bt.h>
 
 // Home row mods macro
-#define HRML(k1,k2,k3,k4) &ht LGUI k1  &ht LALT k2  &ht LCTRL k3  &ht LSHFT k4
-#define HRMR(k1,k2,k3,k4) &ht RSHFT k1  &ht LCTRL k2  &ht LALT k3  &ht LGUI k4
+#define HRML(k1,k2,k3,k4) &lt 1 k1  &ht LALT k2  &ht LCTRL k3  &ht LSHFT k4
+#define HRMR(k1,k2,k3,k4) &lt 2 k1  &ht LCTRL k2  &ht LALT k3  &ht LGUI k4
 
 / {
     behaviors {
@@ -94,12 +94,12 @@
             &ht RALT Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U    &kp Z       &ht RALT SEMI
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │ O        │
-            HRML(A ,        R,         S,         T)     &kp G          &kp M      HRMR(N,        E,         I,        O)
+            HRML(A ,        R,         S,       T)     &kp G          &kp M      HRMR(N,        E,         I,        O)
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Y       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │ / ?      │
-            &kp Y      &kp X      &kp C      &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp DOT    &kp MINUS
+            &kp Y      &kp X      &kp C      &lt 5 D      &kp V          &kp K      &lt 3 H      &kp COMMA  &kp DOT    &kp MINUS
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &lt 5 ESC    &lt 1 BSPC     &lt 2 SPACE  &lt 3 ENTER
+                                             &kp LSHFT  &kp BSPC     &kp SPACE  &kp RSHFT
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -108,7 +108,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans     &trans    &trans        &kp RA(CARET) &kp QMARK  &kp EXCL &kp DLLR  &kp AMPS 
+            &trans     &trans     &trans     &trans    &trans        &kp RA(CARET) &kp QMARK  &kp EXCL &kp DLLR  &kp AMPS  
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │
             &trans     &trans     &trans     &trans    &trans          &kp LEFT    &kp DOWN    &kp UP    &kp RIGHT    &kp TAB
@@ -116,7 +116,7 @@
         //│          │          │          │          │          │   │          │          │          │          │          │
             &trans     &trans     &trans     &trans    &trans          &kp AT     &kp PRCNT  &kp HASH  &kp RA(TILDE) &kp RA(GRAVE)
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &trans
+                                             &trans     &trans         &trans     &kp ENTER
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;  
         };
@@ -134,7 +134,7 @@
         //│          │          │          │          │          │   │          │          │          │          │          │
             &kp N0     &kp N1     &kp N2     &kp N3    &kp EQUAL        &trans     &trans     &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &trans
+                                             &kp ESC     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
