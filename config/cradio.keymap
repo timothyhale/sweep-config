@@ -6,8 +6,8 @@
 #include <dt-bindings/zmk/bt.h>
 
 // Home row mods macro
-#define HRML(k1,k2,k3,k4) &ht LGUI k1  &ht LALT k2  &ht LCTRL k3  &lt 1 k4
-#define HRMR(k1,k2,k3,k4) &lt 2 k1  &ht LCTRL k2  &ht LALT k3  &ht LGUI k4
+#define HRML(k1,k2,k3,k4) &kp k1  &ht LALT k2  &ht LCTRL k3  &lt 1 k4
+#define HRMR(k1,k2,k3,k4) &lt 2 k1  &ht LCTRL k2  &ht LALT k3  &kp k4
 
 / {
     behaviors {
@@ -91,7 +91,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Z       │          │
-            &ht RALT Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U    &kp Z       &ht RALT SEMI
+            &kp Q      &kp W   &ht RALT F   &ht LGUI P      &kp B          &kp J  &ht LGUI L   &ht RALT U    &kp Z    &kp SEMI
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │ O        │
             HRML(A ,        R,         S,       T)     &kp G          &kp M      HRMR(N,        E,         I,        O)
@@ -108,15 +108,15 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans     &trans    &trans        &kp RA(CARET) &kp QMARK  &kp EXCL &kp DLLR  &kp AMPS  
+            &trans     &trans     &trans     &trans    &trans        &kp RA(CARET) &kp QMARK  &kp EXCL &kp DLLR  &kp AMPS
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │
-            &trans     &trans     &trans     &trans    &trans          &kp LEFT    &kp DOWN    &kp UP    &kp RIGHT    &kp TAB
+            &trans     &trans     &trans     &trans    &trans          &kp LEFT    &kp DOWN    &kp UP    &kp RIGHT  &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
             &trans     &trans     &trans     &trans    &trans          &kp AT     &kp PRCNT  &kp HASH  &kp RA(TILDE) &kp RA(GRAVE)
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &kp ENTER
+                                             &trans     &trans         &kp TAB     &kp ENTER
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;  
         };
