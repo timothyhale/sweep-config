@@ -12,8 +12,8 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <150>;
-            quick-tap-ms = <80>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
             global-quick-tap;
             bindings = <&kp>, <&kp>;
         };
@@ -73,13 +73,12 @@
 
 
 
-
     combos {
             compatible = "zmk,combos";
             combo_layer4 {
                 timeout-ms = <50>;
                 key-positions = <31 32>;
-                bindings = <&mo 4>;
+                bindings = <&mo 3>;
             };
         };
 
@@ -89,15 +88,15 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Z       │          │
-            &lt 3 Q      &kp W        &kp F   &kp P      &kp B          &kp J         &kp L       &kp U    &kp Z    &lt 5 SEMI
+            &kp Q      &kp W        &kp F   &kp P      &kp B          &kp J         &kp L       &kp U    &kp Z    &kp SEMI
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │ O        │
             &kp A      &kp R        &kp S       &kp T   &kp G          &kp M      &kp N         &kp E     &kp I     &kp O
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Y       │  X       │  C       │  D       │  V       │   │  K       │  H       │          │          │          │
-            &kp Y      &kp X      &kp C   &kp D      &kp V              &kp K      &kp H   &kp COMMA   &kp DOT   &kp MINUS
+            &ht LGUI Y &ht LALT X &ht LCTRL C &ht LSHFT D  &kp V        &kp K      &ht LSHFT H   &ht LCTRL COMMA   &ht LALT DOT  &ht LGUI MINUS
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &kp ENTER  &mo 1             &mo 2  &kp SPACE
+                                             &kp ENTER  &mo 2             &mo 1  &kp SPACE
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -106,15 +105,14 @@
             bindings = <
             //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
             //│          │          │          │          │          │   │          │          │          │          │          │
-            &kp N0     &kp N1    &kp N2     &kp N3    &kp N4             &trans     &trans     &trans     &trans     &trans
+            &kp AT     &kp LBKT &kp LBRC &kp LPAR       &kp FSLH       &kp BSLH  &kp RPAR  &kp RBRC  &kp RBKT  &kp RA(GRAVE)
             //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
             //│          │          │          │          │          │   │          │          │          │          │
-            &kp RALT     &kp LALT     &kp LCTRL     &kp LSHFT &kp LGUI       &trans     &trans     &trans     &trans     &trans
+            &kp N0     &kp N1    &kp N2     &kp N3    &kp N4             &kp N5    &kp N6     &kp N7     &kp N8      &kp N9
             //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-            //│          │          │          │          │          │   │          │          │          │          │          │
-            &kp PLUS    &kp STAR  &kp RA(TILDE) &kp PRCNT   &kp EQUAL    &trans     &trans     &trans     &trans     &trans
+&ht LGUI PLUS &ht LALT STAR &ht LCTRL RA(TILDE) &ht LSHFT PRCNT  &kp EQUAL  &kp PIPE  &ht LSHFT AMPS &ht LCTRL RA(APOS)  &ht LALT EXCL  &ht LGUI QMARK
             //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                                &bootloader     &trans         &trans     &kp BSPC
+                                                &kp BSPC     &kp SPACE      &trans     &bootloader
             //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -123,15 +121,15 @@
             bindings = <
             //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
             //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans     &trans     &trans            &kp N5    &kp N6     &kp N7     &kp N8      &kp N9
+            &kp RA(Q)     &trans    &trans      &kp RA(P)  &kp DLLR        &kp LS(TAB) &kp PAGE_DOWN &kp PAGE_UP &kp TAB &kp ESC
             //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
             //│          │          │          │          │          │   │          │          │          │          │
-            &trans     &trans     &trans     &trans     &trans              &kp LGUI  &kp LSHFT   &kp LCTRL  &kp LALT  &kp RALT
+              &trans    &kp HASH     &kp RA(S) &kp RA(CARET) &kp RS(RA(DQT))  &kp LEFT    &kp DOWN    &kp UP    &kp RIGHT  &kp DEL
             //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
             //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans     &trans     &trans              &kp PIPE   &kp AMPS  &td_apos &kp EXCL &kp QMARK
+                &ht LGUI RA(Y)  &kp LALT    &kp LCTRL   &kp LSHFT  &trans   &kp HOME &ht LSHFT CAPS &ht LCTRL PSCRN &ht LALT END  &ht LGUI DEL
             //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                                &trans     &trans         &trans     &bootloader
+                                                &bootloader   &trans      &trans     &kp BSPC
             //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -141,48 +139,13 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-        &trans      &trans     &trans     &trans    &trans             &kp LS(TAB) &kp PAGE_DOWN &kp PAGE_UP &kp TAB &kp ESC
+            &kp F12     &kp F7    &kp F8     &kp F9    &trans       &bt BT_CLR &bt BT_SEL 0  &bt BT_SEL 1     &trans     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │
-          &trans      &kp LALT     &kp LCTRL     &kp LSHFT  &trans     &kp LEFT    &kp DOWN    &kp UP    &kp RIGHT  &trans
+            &kp F11  &kp F4     &kp F5     &kp F6     &trans         &trans     &kp C_BRI_DN  &kp C_BRI_UP     &trans     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans    &trans     &trans     &trans    &trans            &trans     &trans     &trans     &trans     &trans 
-        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans          &trans     &trans
-        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-            >;
-        };
-
-
-         fourth_layer {
-            bindings = <
-        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│          │          │          │          │          │   │          │          │          │          │          │
-            &kp AT     &kp LBKT &kp LBRC &kp LPAR       &kp FSLH       &kp BSLH  &kp RPAR  &kp RBRC  &kp RBKT  &kp RA(GRAVE)
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │          │          │   │          │          │          │          │
-            &kp RALT     &kp LALT  &kp LCTRL &kp LSHFT &kp LGUI       &kp LGUI  &kp LSHFT   &kp LCTRL  &kp LALT  &kp RALT
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │         │         │         │   │     |     │          │          │         │          │
-           &trans     &trans     &kp RA(CARET) &kp DLLR     &trans        &trans  &kp HASH &trans      &trans     &trans
-        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans      &trans     &trans
-        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-            >;
-        };
-
-        fifth_layer {
-            bindings = <
-        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│          │          │          │          │          │   │          │          │          │          │          │
-            &kp F12     &kp F7    &kp F8     &kp F9    &kp PSCRN         &bt BT_CLR     &trans     &trans     &trans     &trans
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │          │          │   │          │          │          │          │
-            &kp F11  &kp F4     &kp F5     &kp F6     &trans         &kp LGUI  &kp LSHFT   &kp LCTRL  &kp LALT  &kp RALT
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │          │          │   │          │          │          │          │          │
-            &kp F10     &kp F1    &kp F2     &kp F3    &kp DEL        &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2  &bt BT_SEL 3 &trans
+            &kp F10     &kp F1    &kp F2     &kp F3    &trans        &trans      &kp LSHFT   &kp LCTRL  &kp LALT  &kp LGUI
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans      &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
